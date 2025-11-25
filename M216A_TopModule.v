@@ -21,7 +21,7 @@
 //
 ////////////////////////////////////////////////////////////////
 
-module HW2_alu ( 
+module M216A_TopModule ( 
     in_i,
     in_f,
     clk,
@@ -40,6 +40,19 @@ output  [3:0]  out;
 
 ////////////////////////////////////////////////////////////////
 // Wiring
+wire [3:0]   core_out;
 
+
+////////////////////////////////////////////////////////////////
+//Instantiate the core module
+MASH_111_Core core_inst (
+    .in_i (in_i),
+    .in_f (in_f),
+    .clk (clk),
+    .rst_n (rst_n),
+    .out (core_out)
+);
+
+assign out = core_out;
 
 endmodule
