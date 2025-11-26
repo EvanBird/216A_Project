@@ -85,4 +85,13 @@ always @(posedge clk) begin
     end
 end
 
+//----------------------------------------------------------------
+//		VCD Dump
+//----------------------------------------------------------------
+initial begin
+	$sdf_annotate("M216A_TopModule.sdf", dut);
+	$dumpfile("M216A_TopModule.vcd"); 
+	$dumpvars;
+end
+
 endmodule
