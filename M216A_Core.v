@@ -121,17 +121,17 @@ assign out = out_next;
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         // RST all to 0
-        acc_store_1 <= '0;
-        acc_store_2 <= '0;
-        acc_store_3 <= '0;
+        acc_store_1 <= 0;
+        acc_store_2 <= 0;
+        acc_store_3 <= 0;
 
-        c1_z1 <= '0;
-        c1_z2 <= '0;
-        c2_z1 <= '0;
-        c3_z1 <= '0;
-        in_i_z1 <= '0;
-        in_i_z2 <= '0;
-        y_z1 <= '0;
+        c1_z1 <= 0;
+        c1_z2 <= 0;
+        c2_z1 <= 0;
+        c3_z1 <= 0;
+        in_i_z1 <= 0;
+        in_i_z2 <= 0;
+        y_z1 <= 0;
 
     end else begin
         // Process Accumulators
