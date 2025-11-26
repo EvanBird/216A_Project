@@ -7,7 +7,6 @@ module MASH_111_Core (
     );
 
 //setting widths of inputs and outputs
-parameter frac_w = 16;
 parameter acc_w = 16;
 
 //ensure out_f width is 4 bits, differentiator output width is 4 bits
@@ -115,13 +114,13 @@ always @(posedge clk or negedge rst_n) begin
         c1_z2 <= c1_z1;
         c2_z1 <= c2_s;
         c3_z1 <= c3_s;
-        in_i_z1 <= in_i;
+        in_i_z1 <= in_i_s;
         in_i_z2 <= in_i_z1;
         y_z1 <= y_n;
         
         //output fractional updates
         out_f <= (y_n - y_z1) + c1_z2;
-        
+
     end
 end
 
