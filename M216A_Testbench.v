@@ -1,6 +1,23 @@
+////////////////////////////////////////////////////////////////
+//
+// Module: M216A_Testbench.v
+// Author: Evan Bird & Eli Foerst
+//         evanbird@g.ucla.edu
+//         efoerst@ucla.edu
+//
+// Description:
+//      Testbench for DSM Project
+//
+////////////////////////////////////////////////////////////////
+
 `timescale 1ns/1ps
 
-module M216A_TopModule_tb;
+module M216A_Testbench;
+
+////////////////////////////////////////////////////////////////
+// Ease of Use Parameter -- Change for more or fewer cycles
+parameter cycles = 2001;
+////////////////////////////////////////////////////////////////
 
 // DUT Pins
 reg         clk;
@@ -49,8 +66,8 @@ initial begin
     in_i = 4'd8;
     in_f = 16'd32000; // ~0.488 as 16-bit fraction
 
-    //make sure that startup transient is not included in the average
-    repeat (100) @(posedge clk);
+    // run for 128 cycles
+    repeat (cycles) @(posedge clk);
 
     measure = 1;
 
@@ -74,6 +91,15 @@ always @(posedge clk) begin
         $display("t=%0t ns  cycle=%0d  out=%0d (0x%0h)  avg_out=%f",
                  $time, clk_count + 1, out, out, avg_out);
     end
+end
+
+//----------------------------------------------------------------
+//		VCD Dump
+//----------------------------------------------------------------
+initial begin
+	$sdf_annotate("M216A_TopModule.sdf", dut);
+	$dumpfile("M216A_TopModule.vcd"); 
+	$dumpvars;
 end
 
 endmodule
