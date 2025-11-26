@@ -1,0 +1,83 @@
+m255
+K4
+z2
+!s11f vlog 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/w/home.09/be/ugrad/evanb/ee216a
+vM216A_TopModule
+2/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_TopModule.v
+!s110 1764120496
+!i10b 1
+!s100 Gj;FY?K60mNYIXVaSlZ_f3
+IC2[]ozlTG8iT`N9eG0R;C1
+Z0 d/w/home.09/be/ugrad/evanb/ee216a/216A_Project
+w1764103219
+8/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_TopModule.v
+F/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_TopModule.v
+!i122 18
+L0 24 35
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 OP;L;2024.2;79
+r1
+!s85 0
+31
+Z3 !s108 1764120495.000000
+!s107 /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_TopModule.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_TopModule.v|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+n@m216@a_@top@module
+vM216A_TopModule_tb
+2/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_Testbench.v
+Z6 !s110 1764120495
+!i10b 1
+!s100 OZF[=ST[2Lb>0Mb00QiXZ1
+ICkXo1aU[7d:6UZ<QbN=6;2
+R0
+w1764120477
+8/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_Testbench.v
+F/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_Testbench.v
+!i122 17
+L0 3 69
+R1
+R2
+r1
+!s85 0
+31
+R3
+!s107 /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_Testbench.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_Testbench.v|
+!i113 1
+R4
+R5
+n@m216@a_@top@module_tb
+vMASH_111_Core
+2/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v
+R6
+!i10b 1
+!s100 bH3DY3:PUhDKRF4[9O0ll3
+I9gRQ508QVTd7RAWITU]UT3
+R0
+w1764114802
+8/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v
+F/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v
+!i122 16
+L0 1 127
+R1
+R2
+r1
+!s85 0
+31
+R3
+!s107 /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v|
+!i113 1
+R4
+R5
+n@m@a@s@h_111_@core

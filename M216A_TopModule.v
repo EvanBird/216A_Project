@@ -56,5 +56,3 @@ MASH_111_Core core_inst (
 assign out = core_out;
 
 endmodule
-
-// sample changes, for test-branch

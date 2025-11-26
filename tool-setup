@@ -1,0 +1,78 @@
+# Synopsys setup
+# --------------
+source /w/apps4/Synopsys/synthesis/X-2025.06-SP3/SETUP
+source /w/apps4/Synopsys/prime/X-2025.06-SP2/SETUP
+# source /w/apps4/Synopsys/cc/V-2023.12-SP2-3/SETUP
+# source /w/apps4/Synopsys/fm/V-2023.12-SP4/SETUP
+# source /w/apps4/Synopsys/icc2/V-2023.12-SP4/SETUP
+# source /w/apps4/Synopsys/idq/V-2023.12-SP4/SETUP
+# source /w/apps4/Synopsys/nt/V-2023.12-SP4/SETUP
+# source /w/apps4/Synopsys/prime/V-2023.12-SP4/SETUP
+# source /w/apps4/Synopsys/raphael_fx/V-2024.03/SETUP
+# source /w/apps4/Synopsys/sentaurus/current/SETUP
+# source /w/apps4/Synopsys/txs/V-2023.12-SP4/SETUP
+# source /w/apps4/Synopsys/wv/V-2023.12-SP2-1/SETUP
+# source /w/apps4/Synopsys/esp/V-2023.12-SP5/SETUP
+# source /w/apps4/Synopsys/hsim/V-2023.12-SP2/SETUP
+# source /w/apps4/Synopsys/icvalidator/V-2023.12-SP4-1/SETUP
+# source /w/apps4/Synopsys/pcm_studio/V-2024.03/SETUP
+# source /w/apps4/Synopsys/primeHSPICE/W-2024.09-SP1-2/SETUP
+# source /w/apps4/Synopsys/starrc/V-2023.12-SP3/SETUP
+# source /w/apps4/Synopsys/verdi/V-2023.12-SP2/SETUP
+
+# Cadence setup
+# -------------
+export CDS_Netlisting_Mode=Analog
+export CDSHOME=/w/apps4/Cadence/IC231
+source /w/apps4/Cadence/IC231/SETUP
+source /w/apps4/Cadence/ASSURA41/SETUP
+source /w/apps4/Cadence/GENUS211/SETUP
+source /w/apps4/Cadence/IXCOM2405/SETUP
+source /w/apps4/Cadence/PEGASUSDFM241/SETUP
+source /w/apps4/Cadence/CAP221/SETUP
+source /w/apps4/Cadence/HELIUM2404/SETUP
+source /w/apps4/Cadence/JEDAI231/SETUP
+source /w/apps4/Cadence/PVS231/SETUP
+source /w/apps4/Cadence/ULTRASIM181/SETUP
+source /w/apps4/Cadence/CEREBRUS231/SETUP
+source /w/apps4/Cadence/HELIUMHDT2404/SETUP
+source /w/apps4/Cadence/LCU43/SETUP
+source /w/apps4/Cadence/QUANTUS231/SETUP
+source /w/apps4/Cadence/VERISIUMDEBUGAGL2403/SETUP
+source /w/apps4/Cadence/CONFRML241/SETUP
+source /w/apps4/Cadence/LIBERATE231/SETUP
+source /w/apps4/Cadence/SIG3DEM19/SETUP
+# source /w/apps4/Cadence/VERISIUMMGRAGL2403/SETUP
+source /w/apps4/Cadence/DDI231/SETUP
+source /w/apps4/Cadence/INDAGOA72203/SETUP
+source /w/apps4/Cadence/LITMUS232/SETUP
+source /w/apps4/Cadence/SIGRITY20240/SETUP
+source /w/apps4/Cadence/VMANAGER2403/SETUP
+source /w/apps4/Cadence/DDIEXPORT23/SETUP
+source /w/apps4/Cadence/INNOVUS211/SETUP
+source /w/apps4/Cadence/MIDAS2403/SETUP
+source /w/apps4/Cadence/SPB231/SETUP
+source /w/apps4/Cadence/WXE2405/SETUP
+source /w/apps4/Cadence/DOCASSISTANT201/SETUP
+source /w/apps4/Cadence/INNOVUSEXPORT21/SETUP
+source /w/apps4/Cadence/MODUS231/SETUP
+source /w/apps4/Cadence/SPECTRE231/SETUP
+source /w/apps4/Cadence/XCELIUM2403/SETUP
+source /w/apps4/Cadence/EMX20232/SETUP
+source /w/apps4/Cadence/PDAPP2404/SETUP
+source /w/apps4/Cadence/SSV231/SETUP
+source /w/apps4/Cadence/XCELIUM2403_1/SETUP
+#source /w/apps4/Cadence/EMXD20241/SETUP
+source /w/apps4/Cadence/INTEGRAND63/SETUP
+source /w/apps4/Cadence/PEGASUS232/SETUP
+source /w/apps4/Cadence/STRATUS2401/SETUP
+source /w/apps4/Cadence/XCELIUMML2403/SETUP
+
+# Mentor setup
+# ------------
+source /w/apps3/Mentor/ModelSim/v2024.2-de/SETUP
+
+# Matlab setup
+# ------------
+#setenv MATLAB_ARCH glnxa64
+#alias matlab /w/apps3/Matlab/R2013a/bin/matlab
