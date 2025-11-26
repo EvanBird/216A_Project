@@ -1,6 +1,9 @@
 ################################################################################
 # PRIMETIME: Static Timing Analysis Tool                                       #
 ################################################################################
+
+#TODO: Comment out PART 2 ASPECTS AND RUN VSIM FIRST!!!
+
 remove_design -all
 
 # Add search paths for ptpx to find our technology libs.
@@ -45,7 +48,7 @@ extract_model -library_cell -format lib -output $DESIGN_NAME
 ################################################################################
 
 # UNCOMMENT FOR PART 2
-#set power_enable_analysis true
+set power_enable_analysis true
 
 ################################################################################
 # Of course, ptpx not only gives you accurate static-timing analysis, but also #
@@ -65,7 +68,7 @@ extract_model -library_cell -format lib -output $DESIGN_NAME
 ################################################################################
 
 # ADD CODE HERE FOR PART 2
-#set power_analysis_mode averaged
+set power_analysis_mode averaged
 
 ################################################################################
 # Read the .vcd files. This is a file containing toggling activities of a      #
@@ -90,6 +93,6 @@ extract_model -library_cell -format lib -output $DESIGN_NAME
 ################################################################################
 
 # UNCOMMENT FOR PART 2 
-#read_vcd alu.vcd -strip_path alu_tb/alu_0
-#update_power
-#report_power -verbose
+read_vcd M216A_TopModule.vcd -strip_path M216A_Testbench/dut
+update_power
+report_power -verbose
