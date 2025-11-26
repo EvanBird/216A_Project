@@ -3,6 +3,7 @@
 // Module: M216A_TopModule.v
 // Author: Evan Bird & Eli Foerst
 //         evanbird@g.ucla.edu
+//         efoerst@ucla.edu
 //
 // Description:
 //      Top Module for DSM Project
@@ -44,8 +45,8 @@ wire [3:0]   core_out;
 
 
 ////////////////////////////////////////////////////////////////
-//Instantiate the core module
-MASH_111_Core core_inst (
+//Instantiate the Core Module
+M216A_Core core_inst (
     .in_i (in_i),
     .in_f (in_f),
     .clk (clk),
@@ -56,5 +57,3 @@ MASH_111_Core core_inst (
 assign out = core_out;
 
 endmodule
-
-// sample changes, for test-branch
