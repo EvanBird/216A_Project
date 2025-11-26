@@ -1,6 +1,23 @@
+////////////////////////////////////////////////////////////////
+//
+// Module: M216A_Testbench.v
+// Author: Evan Bird & Eli Foerst
+//         evanbird@g.ucla.edu
+//         efoerst@ucla.edu
+//
+// Description:
+//      Testbench for DSM Project
+//
+////////////////////////////////////////////////////////////////
+
 `timescale 1ns/1ps
 
-module M216A_TopModule_tb;
+module M216A_Testbench;
+
+////////////////////////////////////////////////////////////////
+// Ease of Use Parameter -- Change for more or fewer cycles
+parameter cycles = 2001;
+////////////////////////////////////////////////////////////////
 
 // DUT Pins
 reg         clk;
@@ -48,7 +65,7 @@ initial begin
     in_f = 16'd32000; // ~0.488 as 16-bit fraction
 
     // run for 128 cycles
-    repeat (128) @(posedge clk);
+    repeat (cycles) @(posedge clk);
 
     $display("FINAL: cycles=%0d  avg_out=%f", clk_count, avg_out);
     $finish;
