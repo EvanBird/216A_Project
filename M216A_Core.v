@@ -33,7 +33,7 @@ module M216A_Core (
 
 // Parameterize for ease of use
 parameter acc_w = 16;
-parameter diff_w = 4;
+parameter frac_w = 3;
 
 //////////////////////////////////////////////////////////////////
 
@@ -42,11 +42,11 @@ parameter diff_w = 4;
 // Stored Accumulator Vars
 reg [acc_w-1:0] acc_store_1, acc_store_2, acc_store_3; 
 
-// Full Adder Implementation
+// Full Adder Implementations
 wire [acc_w:0] full_add_1, full_add_2, full_add_3;
 
 // Error Propogation
-wire [acc_w-1:0] e1, e2, e3;
+wire [acc_w-1:0] e1, e2;
 
 // Carry Feedthrough
 wire c1, c2, c3;
@@ -62,58 +62,45 @@ assign e2 = full_add_2[acc_w-1:0];
 
 assign full_add_3 = acc_store_3 + e2;
 assign c3 = full_add_3[acc_w];
-assign e3 = full_add_3[acc_w-1:0];
 
 //////////////////////////////////////////////////////////////////
 
 // Noise Shaping States
-
 // State Storage (DFF) --- Let zn exist to represent delay, where n is the delay count integer (ie z1 = n-1)
 
-// Variable Propogation
+// carries as 3-bit signed, 0 or -1
+wire signed [frac_w-1:0] c1_s = {frac_w{c1}};
+wire signed [frac_w-1:0] c2_s = {frac_w{c2}};
+wire signed [frac_w-1:0] c3_s = {frac_w{c3}};
 
-// Carry 3
-wire signed [diff_w-3:0] c3_s = {{(diff_w-3){1'b0}}, c3};
-reg signed [diff_w-3:0] c3_z1;
+//carry delays instantiations
+reg signed [frac_w-1:0] c1_z1, c1_z2, c2_z1, c3_z1;
 
-wire signed [diff_w-3:0] d1;
+// Fractional output (3-bit, range -4..+3)
+wire  signed [frac_w-1:0] out_f;
 
-// Carry 2
-wire signed [diff_w-2:0] c2_s = {{(diff_w-2){1'b0}}, c2};
-reg signed [diff_w-2:0] c2_z1;
+// Integer input path with z^-2
+wire signed [3:0] in_i_s = $signed(in_i);
+reg  signed [3:0] in_i_z1, in_i_z2;
 
-wire signed [diff_w-2:0] y;
+// y node and its delay
+wire signed [frac_w-1:0] y;
+reg  signed [frac_w-1:0] y_z1;
 
-reg signed [diff_w-2:0] y_z1;      // Delay the Sum
+// y[n] = (c3[n] - c3[n-1]) + c2[n-1]
+assign y = (c3_s - c3_z1) + c2_z1;
 
-wire signed [diff_w-2:0] d2;
+// out_f[n] = c1[n-2] + (y[n] - y[n-1])
+assign out_f = c1_z2 + (y - y_z1);
 
-// Carry 1
-wire signed [diff_w-1:0] c1_s = {{(diff_w-1){1'b0}}, c1};
-reg signed [diff_w-1:0] c1_z1;
-reg signed [diff_w-1:0] c1_z2;
+// sign-extend the 3-bit out_f to 4 bits for final combine
+wire signed [3:0] out_f_ext = {out_f[frac_w-1], out_f};
 
-wire signed [diff_w-1:0] out_f;
+// final integer output: out = in_i - out_f (since out_f ≤ 0)
+wire signed [3:0] out_next = in_i_z2 - out_f_ext;
 
-// Input
-wire signed [diff_w-1:0] in_i_s = $signed(in_i);        // Sign Input
-reg signed [diff_w-1:0] in_i_z1;
-reg signed [diff_w-1:0] in_i_z2;
-
-wire signed [diff_w-1:0] out_next;
-
-////////////////////////////////////////////////////////////////
-
-// Main Combinational Block
-assign d1 = c3_s - c3_z1;     // First Difference - 2 bit
-assign y = c2_z1 + {{1{d1[1]}}, d1};      // First Sum - 3 Bit
-assign d2 = y - y_z1;         // Second Difference - 3 Bit
-assign out_f = c1_z2 + {{1{d2[2]}}, d2};      // Second Sum - 4 Bit
-assign out_next = in_i_z2 + out_f;      // Last Sum - 4 Bit
-
-// Set output
+// set output
 assign out = out_next;
-
 
 ////////////////////////////////////////////////////////////////
 
@@ -142,10 +129,14 @@ always @(posedge clk or negedge rst_n) begin
         // Update States
         c1_z1 <= c1_s;
         c1_z2 <= c1_z1;
+
         c2_z1 <= c2_s;
+
         c3_z1 <= c3_s;
+
         in_i_z1 <= in_i_s;
         in_i_z2 <= in_i_z1;
+
         y_z1 <= y;
     end
 end
