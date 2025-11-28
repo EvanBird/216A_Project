@@ -73,8 +73,14 @@ wire signed [frac_w-1:0] c1_s = {frac_w{c1}};
 wire signed [frac_w-1:0] c2_s = {frac_w{c2}};
 wire signed [frac_w-1:0] c3_s = {frac_w{c3}};
 
-//carry delays instantiations
-reg signed [frac_w-1:0] c1_z1, c1_z2, c2_z1, c3_z1;
+// 1-bit carry history, trying to reduce # of FFs
+reg c1_z1, c1_z2, c2_z1, c3_z1;
+
+// delayed carries as 3-bit signed 0/-1
+wire signed [frac_w-1:0] c1_z1_s = {frac_w{c1_z1}};
+wire signed [frac_w-1:0] c1_z2_s = {frac_w{c1_z2}};
+wire signed [frac_w-1:0] c2_z1_s = {frac_w{c2_z1}};
+wire signed [frac_w-1:0] c3_z1_s = {frac_w{c3_z1}};
 
 // Fractional output (3-bit, range -4..+3)
 wire  signed [frac_w-1:0] out_f;
@@ -88,10 +94,10 @@ wire signed [frac_w-1:0] y;
 reg  signed [frac_w-1:0] y_z1;
 
 // y[n] = (c3[n] - c3[n-1]) + c2[n-1]
-assign y = (c3_s - c3_z1) + c2_z1;
+assign y = (c3_s - c3_z1_s) + c2_z1_s;
 
 // out_f[n] = c1[n-2] + (y[n] - y[n-1])
-assign out_f = c1_z2 + (y - y_z1);
+assign out_f = c1_z2_s + (y - y_z1);
 
 // sign-extend the 3-bit out_f to 4 bits for final combine
 wire signed [3:0] out_f_ext = {out_f[frac_w-1], out_f};
@@ -127,12 +133,12 @@ always @(posedge clk or negedge rst_n) begin
         acc_store_3 <= full_add_3[acc_w-1:0];
 
         // Update States
-        c1_z1 <= c1_s;
+        c1_z1 <= c1;
         c1_z2 <= c1_z1;
 
-        c2_z1 <= c2_s;
+        c2_z1 <= c2;
 
-        c3_z1 <= c3_s;
+        c3_z1 <= c3;
 
         in_i_z1 <= in_i_s;
         in_i_z2 <= in_i_z1;
