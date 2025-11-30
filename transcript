@@ -1,0 +1,49 @@
+# Loading project temp_1
+# Compile of M216A_Core.v was successful.
+# Compile of M216A_Testbench.v was successful.
+# Compile of M216A_TopModule.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.M216A_TopModule
+# vsim work.M216A_TopModule 
+# Start time: 15:54:18 on Nov 29,2025
+# //  ModelSim DE 2024.2 May 20 2024 Linux 4.18.0-553.83.1.el8_10.x86_64
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading work.M216A_TopModule
+# Loading work.M216A_Core
+run -all
+run -all
+# Compile of M216A_Core.v was successful.
+# Compile of M216A_Testbench.v was successful.
+# Compile of M216A_TopModule.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.M216A_TopModule
+# End time: 16:03:05 on Nov 29,2025, Elapsed time: 0:08:47
+# Errors: 0, Warnings: 3
+# vsim work.M216A_TopModule 
+# Start time: 16:03:05 on Nov 29,2025
+# Loading work.M216A_TopModule
+# Loading work.M216A_Core
+run -all
+# Compile of M216A_Core.v was successful.
+# Compile of M216A_Testbench.v was successful.
+# Compile of M216A_TopModule.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.M216A_TopModule
+# End time: 16:06:30 on Nov 29,2025, Elapsed time: 0:03:25
+# Errors: 0, Warnings: 2
+# vsim work.M216A_TopModule 
+# Start time: 16:06:30 on Nov 29,2025
+# Loading work.M216A_TopModule
+# Loading work.M216A_Core
+run -all

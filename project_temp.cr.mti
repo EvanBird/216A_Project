@@ -1,22 +1,8 @@
-/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_TopModule.v {1 {vlog -work work -stats=none /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_TopModule.v
-Model Technology ModelSim DE vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module M216A_TopModule
-
-Top level modules:
-	M216A_TopModule
-
-} {} {}} /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v {1 {vlog -work work -stats=none /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v
+/w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v {1 {vlog -work work -stats=none /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_CoreModule.v
 Model Technology ModelSim DE vlog 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling module MASH_111_Core
 
 Top level modules:
 	MASH_111_Core
-
-} {} {}} /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_Testbench.v {1 {vlog -work work -stats=none /w/home.09/be/ugrad/evanb/ee216a/216A_Project/M216A_Testbench.v
-Model Technology ModelSim DE vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module M216A_TopModule_tb
-
-Top level modules:
-	M216A_TopModule_tb
 
 } {} {}}

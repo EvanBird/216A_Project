@@ -29,7 +29,6 @@ wire [3:0]  out;
 // count clock ticks, and get average
 integer clk_count;
 integer sum_out;
-integer measure;
 real    avg_out;
 
 // instantiate top level DUT
@@ -37,7 +36,7 @@ M216A_TopModule dut (
     .in_i (in_i),
     .in_f (in_f),
     .clk  (clk),
-    .rst_n (rst_n),
+    .rst_n(rst_n),
     .out  (out)
 );
 
@@ -51,12 +50,11 @@ end
 initial begin
     // initialize inputs
     rst_n     = 1'b0;
-    in_i      = 4'd8;
+    in_i      = 4'd0;
     in_f      = 16'd0;
     clk_count = 0;
     sum_out   = 0;
     avg_out   = 0.0;
-    measure = 0;
 
     // release reset
     #10;
@@ -69,23 +67,17 @@ initial begin
     // run for 128 cycles
     repeat (cycles) @(posedge clk);
 
-    measure = 1;
-
-    // run for 128 cycles
-    repeat (2000) @(posedge clk);
-
-    $display("FINAL: cycles=%0d  avg_out=%f", clk_count + 1, avg_out);
+    $display("FINAL: cycles=%0d  avg_out=%f", clk_count, avg_out);
     $finish;
 end
 
 // monitoring output and calculating average
 always @(posedge clk) begin
-    if (rst_n && measure) begin
+    if (rst_n) begin
         clk_count <= clk_count + 1;
         sum_out   <= sum_out + out;
 
         // use current out and "next" count in the average
-        //next count since we use nonblocking statements above
         avg_out = (sum_out + out) * 1.0 / (clk_count + 1);
 
         $display("t=%0t ns  cycle=%0d  out=%0d (0x%0h)  avg_out=%f",
